@@ -12,15 +12,17 @@ class IndexController extends Action
     public function index()
     {
         $client = Container::getModel("Client");
-        $this->view->clients = $client->fetchAll();
+        $this->views->clients = $client->fetchAll();
 
         $this->render("index");
     }
 
     public function contact()
     {
-        $this->view->cars = array("Mustang", "Ferrari");
-        $this->render("contact");
+        $client = Container::getModel("Client");
+        $this->views->clients = $client->find(1);
+
+        $this->render("contact", false);
     }
 
 
