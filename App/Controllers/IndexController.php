@@ -7,11 +7,13 @@ class IndexController
 {
     public function index()
     {
-        echo "Route: / Controlller: index";
+        $cars = array("Mustang", "Ferrari");
+        include_once "../App/Views/index/index.phtml";
     }
 
     public function contact()
     {
-        echo "Route: /contact Controlller: contact";
+        $cars = array("Mustang", "Ferrari");
+        include_once "../App/Views/index/contact.phtml";
     }
 }
