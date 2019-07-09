@@ -3,15 +3,27 @@
 
 namespace App\Controllers;
 
-class IndexController
+use SON\Controller\Action;
+use SON\DI\Container;
+
+class IndexController extends Action
 {
+
     public function index()
     {
-        echo "Route: / Controlller: index";
+        $client = Container::getModel("Client");
+        $this->views->clients = $client->fetchAll();
+
+        $this->render("index");
     }
 
     public function contact()
     {
-        echo "Route: /contact Controlller: contact";
+        $client = Container::getModel("Client");
+        $this->views->clients = $client->find(1);
+
+        $this->render("contact", false);
     }
+
+
 }
